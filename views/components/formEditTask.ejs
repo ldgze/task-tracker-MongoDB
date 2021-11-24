@@ -1,0 +1,71 @@
+<h2>Task</h2>
+
+<form
+  action=" <%= '/tasks/' + task.taskID + '/edit' %>"
+  method="POST"
+>
+
+  <div>
+    <label class="form-label">
+      Task ID:
+      <input
+        class="form-control"
+        type="text"
+        name="taskID"
+        value="<%= task.taskID %>"
+        disabled
+      />
+    </label>
+  </div>
+  
+  <div>
+    <label class="form-label" value="<%= task.title %>">
+      Title:
+      <input
+        class="form-control"
+        type="text"
+        name="title"
+        value="<%= task.title %>"
+      />
+    </label>
+  </div>
+
+  <div>
+    <label class="form-label" value="<%= task.dueDate %>">
+      Due Date:
+      <input
+        class="form-control"
+        type="text"
+        name="dueDate"
+        value="<%= task.dueDate %>"
+      />
+    </label>
+  </div>
+
+  <div>
+    <label class="form-label">
+      URL:
+      <input class="form-control" type="text" name="URL" value="<%= task.URL %>"/>
+    </label>
+  </div>
+
+   <div>
+    <label class="form-group">
+      Priority:
+      <select class="form-control" type="text" name="priority" 
+      value="<%= task.priority %>"/>
+        <option>low</option>
+        <option>medium</option>
+        <option>hign</option>
+    </select>
+    </label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update</button>
+  
+  <a
+    class="btn btn-danger"
+    href="<%= '/tasks/' + task.taskID + '/delete' %>"
+    >Delete</a
+  >
+</form>
