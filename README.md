@@ -79,6 +79,18 @@ There will be many to many relationships (task-tag) and one to many (user- task,
 
 -   [task.json](https://github.com/ldgze/task-tracker-MongoDB/blob/main/db/task.json)
 
+-   Start the mongoDB localhost server
+
+```
+brew services start mongodb-community
+```
+
+-   Import the database dump file
+
+```
+mongoimport -h localhost:27017 -d ieeevisTweets -c tweet --file ./db/ieeevis2020Tweets.dump
+```
+
 # Implementation of the task-tracker nodeExpressSqliteEJS Application
 
 An Application Using Node + Expres + SQlite + EJS implementing a simple task manager
