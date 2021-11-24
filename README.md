@@ -48,6 +48,7 @@ There will be many to many relationships (task-tag) and one to many (user- task,
 
 ## Definition of Documents/Collections/Tables as example JSON objects.
 
+```
 [{
 "\_id": {
 "$oid": "619d55bb5b3062fb52663b88"
@@ -72,10 +73,11 @@ There will be many to many relationships (task-tag) and one to many (user- task,
 }
 ]
 }]
+```
 
 ## Initialization files for the database containing the mockup data in CSV or Extended JSON format as well as instructions on how to initialize the database.
 
--   [task.json](https://github.com/ldgze/task-tracker-MongoDB/blob/main/task.json)
+-   [task.json](https://github.com/ldgze/task-tracker-MongoDB/blob/main/db/task.json)
 
 # Implementation of the task-tracker nodeExpressSqliteEJS Application
 
