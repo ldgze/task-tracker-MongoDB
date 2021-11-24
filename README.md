@@ -68,16 +68,17 @@ There will be many to many relationships (task-tag) and one to many (user- task,
       "commentID": "1",
       "content": "several Disney characters or just one",
       "updateAt": {
-        "$date": "2021-01-31T08:00:00Z"
-}
-}
-]
+        "$date": "2021-01-31T08:00:00Z"}
+    }
+    ]
 }]
 ```
 
-## Initialization files for the database containing the mockup data in CSV or Extended JSON format as well as instructions on how to initialize the database.
+## Initialization files for the database containing the mockup data in CSV or Extended JSON format.
 
 -   [task.json](https://github.com/ldgze/task-tracker-MongoDB/blob/main/db/task.json)
+
+## Instructions on how to initialize the database.
 
 -   Start the mongoDB localhost server
 
@@ -88,7 +89,7 @@ brew services start mongodb-community
 -   Import the database dump file
 
 ```
-mongoimport -h localhost:27017 -d ieeevisTweets -c tweet --file ./db/ieeevis2020Tweets.dump
+mongoimport --db task --collection task --type json --file ./db/task.json --jsonArray
 ```
 
 # Implementation of the task-tracker nodeExpressSqliteEJS Application
