@@ -49,29 +49,57 @@ There will be many to many relationships (task-tag) and one to many (user- task,
 ## Definition of Documents/Collections/Tables as example JSON objects.
 
 ```
-[{
-"\_id": {
-"$oid": "619d55bb5b3062fb52663b88"
-  },
-  "taskID": "1",
-  "title": "Brainstorm Meeting",
-  "dueDate": "2021-02-11",
-  "createDate": "2021-1-26",
-  "priority": "2",
-  "status": "1",
-  "list": {
-    "listID": "1",
-    "name": "project"
-  },
-  "comment": [
-    {
-      "commentID": "1",
-      "content": "several Disney characters or just one",
-      "updateAt": {
-        "$date": "2021-01-31T08:00:00Z"}
+{
+    "_id": {
+        "$oid": "619d55bb5b3062fb52663b88"
+    },
+    "taskID": "1",
+    "title": "Brainstorm Meeting",
+    "dueDate": {
+        "$date": "2021-02-11T08:00:00.000Z"
+    },
+    "createDate": {
+        "$date": "2021-01-26T08:00:00.000Z"
+    },
+    "priority": "high",
+    "status": "done",
+    "list": {
+        "listID": "1",
+        "name": "project"
+    },
+    "comment": [{
+        "commentID": "1",
+        "content": "several Disney characters or just one",
+        "updateAt": {
+            "$date": "2021-01-31T08:00:00.000Z"
+        }
+    }],
+    "subtask": [{
+        "subtaskID": "1",
+        "title": "Select topic",
+        "status": "todo"
+    }, {
+        "subtaskID": "2",
+        "title": "Select presentation style",
+        "status": "todo"
+    }],
+    "creator": {
+        "userID": "1",
+        "firstName": "Marrilee",
+        "lastName": "Farnell",
+        "email": "mfarnell0@independent.co.uk"
+    },
+    "tag": [{
+        "tagID": "7",
+        "name": "design"
+    }],
+    "assignee": {
+        "usetID": "1",
+        "firstName": "Marrilee",
+        "lastName": "Farnell",
+        "email": "mfarnell0@independent.co.uk"
     }
-    ]
-}]
+}
 ```
 
 ## Initialization files for the database containing the mockup data in CSV or Extended JSON format.
