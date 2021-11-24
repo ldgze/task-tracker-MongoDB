@@ -32,11 +32,11 @@ There will be many to many relationships (task-tag) and one to many (user- task,
 - [Requirements document](https://github.com/ldgze/task-tracker/blob/main/A.%20Requirements%20Document.pdf)
 
 ## UML
-![image](https://github.com/ldgze/task-tracker/blob/main/B.%20UML%20-%20Page%201.png)
+![image](https://github.com/ldgze/task-tracker-MongoDB/blob/main/B.%20UML%20-%20Page%201.png)
 
 
 ## ERD
-![image](https://github.com/ldgze/task-tracker/blob/main/C.%20ERD%20.png)
+![image](https://github.com/ldgze/task-tracker-MongoDB/blob/main/C.%20ERD.png)
 
 ## Definition of relational schema with proof that it is in BCNF.
 - Tag(tagID, name) 
