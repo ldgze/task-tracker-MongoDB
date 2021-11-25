@@ -48,6 +48,8 @@ There will be many to many relationships (task-tag) and one to many (user- task,
 
 ## Definition of Documents/Collections/Tables as example JSON objects.
 
+-   The collection of task:
+
 ```
 {
   "_id": {
@@ -102,6 +104,32 @@ There will be many to many relationships (task-tag) and one to many (user- task,
   "assignee": {
     "$oid": "619eb57e36b435bf0941af10"
   }
+}
+```
+
+-   The collection of user:
+
+```
+{
+  "_id": {
+    "$oid": "619eb57e36b435bf0941af10"
+  },
+  "email": "mfarnell0@independent.co.uk",
+  "firstName": "Marrilee",
+  "lastName": "Farnell",
+  "userID": "1"
+}
+```
+
+-   The collection of tag:
+
+```
+{
+  "_id": {
+    "$oid": "619efb0636b435bf0941af3b"
+  },
+  "name": "personal",
+  "tagID": "1"
 }
 ```
 
