@@ -1,6 +1,7 @@
+// How many tasks are assigned to each user?
 const { MongoClient } = require("mongodb");
 
-async function getTweets() {
+async function countAssigned() {
   let db, client;
 
   try {
@@ -14,7 +15,7 @@ async function getTweets() {
 
     db = client.db("task");
 
-    const tweetCollection = db.collection("task");
+    const taskCollection = db.collection("user");
 
     const agg = [
       {
@@ -46,18 +47,21 @@ async function getTweets() {
           _id: 1,
         },
       },
+      {
+        $project: {
+          _id: 0,
+        },
+      },
     ];
 
-    const tweet = await tweetCollection.find(query).count();
+    const countAssigned = await taskCollection.aggregate(agg).toArray();
 
-    console.log(tweet);
-
-    //return tweet;
+    console.log(countAssigned);
   } finally {
     await client.close();
   }
 }
 
-module.exports.getTweets = getTweets;
+module.exports.countAssigned = countAssigned;
 
-getTweets();
+countAssigned();

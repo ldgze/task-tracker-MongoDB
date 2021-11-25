@@ -163,6 +163,10 @@ mongoimport --db task --collection user --type json --file ./db/user.json --json
 mongoimport --db task --collection tag --type json --file ./db/tag.json --jsonArray
 ```
 
+## Define and execute at least five queries that show your database.
+
+-
+
 # Implementation of the task-tracker nodeExpressSqliteEJS Application
 
 An Application Using Node + Expres + SQlite + EJS implementing a simple task manager
