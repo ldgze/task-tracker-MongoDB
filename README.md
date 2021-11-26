@@ -40,7 +40,7 @@ There will be many to many relationships (task-tag) and one to many (user- task,
 
 ## UML
 
-![image](https://github.com/ldgze/task-tracker-MongoDB/blob/main/B.%20UML%20-%20Page%201.png)
+![image](https://github.com/ldgze/task-tracker-MongoDB/blob/main/B.%20UML.png)
 
 ## ERD
 
