@@ -13,9 +13,7 @@
     "http-errors": "~1.8.1",
     "mongodb": "^4.2.0",
     "morgan": "~1.10.0",
-    "nodemon": "^2.0.15",
-    "sqlite": "^4.0.23",
-    "sqlite3": "^4.2.0"
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "eslint": "^7.29.0",
