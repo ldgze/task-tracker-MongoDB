@@ -974,7 +974,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b9f"
   },
-  "taskID": "25",
+  "taskID": 25,
   "title": "Distribution",
   "dueDate": {
     "$date": "2021-09-15T07:00:00Z"
@@ -985,17 +985,17 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "5",
+    "listID": 5,
     "name": "Video Making"
   },
   "subtask": [
     {
-      "subtaskID": "47",
+      "subtaskID": 47,
       "title": "Submit to reviewers",
       "status": "todo"
     },
     {
-      "subtaskID": "48",
+      "subtaskID": 48,
       "title": "Post on Youtube",
       "status": "todo"
     }
@@ -1010,7 +1010,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663ba0"
   },
-  "taskID": "26",
+  "taskID": 26,
   "title": "First draft",
   "dueDate": {
     "$date": "2021-11-03T07:00:00Z"
@@ -1021,12 +1021,12 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "6",
+    "listID": 6,
     "name": "Book Writing"
   },
   "comment": [
     {
-      "commentID": "7",
+      "commentID": 7,
       "content": "​​Looking for inspiration? Check out Good Reads. it's a great source for finding new books and reviewing them afterwards",
       "updateAt": {
         "$date": "2021-01-01T08:00:00Z"
@@ -1035,12 +1035,12 @@
   ],
   "subtask": [
     {
-      "subtaskID": "49",
+      "subtaskID": 49,
       "title": "Write 750 words",
       "status": "todo"
     },
     {
-      "subtaskID": "50",
+      "subtaskID": 50,
       "title": "Finish your 1st draft with no internal editor",
       "status": "todo"
     }
