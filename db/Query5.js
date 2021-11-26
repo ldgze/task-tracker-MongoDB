@@ -1,6 +1,7 @@
+// get all the tasks that are of hign or medium priority and due on Sep 2021
 const { MongoClient } = require("mongodb");
 
-async function separateUser() {
+async function getTask() {
   let db, client;
 
   try {
@@ -12,52 +13,41 @@ async function separateUser() {
 
     console.log("Connected to Mongo Server");
 
-    db = client.db("ieeevisTweets");
+    db = client.db("task");
 
-    const tweetCollection = db.collection("tweet");
+    const taskCollection = db.collection("task");
 
-    const agg1 = [
-      {
-        $group: {
-          _id: "$user.id",
-          user: {
-            $last: "$user",
+    const filter = {
+      $and: [
+        {
+          $or: [
+            {
+              priority: "hign",
+            },
+            {
+              priority: "medium",
+            },
+          ],
+        },
+        {
+          dueDate: {
+            $gte: new Date("Wed, 01 Sep 2021 00:00:00 GMT"),
+            $lt: new Date("Fri, 01 Oct 2021 00:00:00 GMT"),
           },
         },
-      },
-      {
-        $replaceRoot: {
-          newRoot: "$user",
-        },
-      },
-      {
-        $out: "User_Only",
-      },
-    ];
+      ],
+    };
 
-    const agg2 = [
-      {
-        $set: {
-          user: "$user.id",
-        },
-      },
-      {
-        $out: "Tweets_Only",
-      },
-    ];
+    const task = await taskCollection.find(filter).toArray();
 
-    await tweetCollection.aggregate(agg1).toArray();
+    console.log(task);
 
-    console.log("User_Only collection created");
-
-    await tweetCollection.aggregate(agg2).toArray();
-
-    console.log("Tweets_Only collection created");
+    return task;
   } finally {
     await client.close();
   }
 }
 
-module.exports.separateUser = separateUser;
+module.exports.getTask = getTask;
 
-separateUser();
+getTask();

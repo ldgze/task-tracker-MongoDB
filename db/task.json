@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b88"
   },
-  "taskID": "1",
+  "taskID": 1,
   "title": "Brainstorm Meeting",
   "dueDate": {
     "$date": "2021-02-11T08:00:00Z"
@@ -18,7 +18,7 @@
   },
   "comment": [
     {
-      "commentID": "1",
+      "commentID": 1,
       "content": "several Disney characters or just one",
       "updateAt": {
         "$date": "2021-01-31T08:00:00Z"
@@ -27,12 +27,12 @@
   ],
   "subtask": [
     {
-      "subtaskID": "1",
+      "subtaskID": 1,
       "title": "Select topic",
       "status": "done"
     },
     {
-      "subtaskID": "2",
+      "subtaskID": 2,
       "title": "Select presentation style",
       "status": "done"
     }
@@ -55,7 +55,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b89"
   },
-  "taskID": "2",
+  "taskID": 2,
   "title": "Teammate Assign Work",
   "dueDate": {
     "$date": "2021-02-01T08:00:00Z"
@@ -66,17 +66,17 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "1",
+    "listID": 1,
     "name": "project"
   },
   "subtask": [
     {
-      "subtaskID": "3",
+      "subtaskID": 3,
       "title": "Assign project leader",
       "status": "done"
     },
     {
-      "subtaskID": "4",
+      "subtaskID": 4,
       "title": "Project description and deliverables",
       "status": "done"
     }
@@ -99,7 +99,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b8a"
   },
-  "taskID": "3",
+  "taskID": 3,
   "title": "Writing Planning",
   "dueDate": {
     "$date": "2021-03-01T08:00:00Z"
@@ -110,17 +110,17 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "1",
+    "listID": 1,
     "name": "project"
   },
   "subtask": [
     {
-      "subtaskID": "5",
+      "subtaskID": 5,
       "title": "Write script",
       "status": "done"
     },
     {
-      "subtaskID": "6",
+      "subtaskID": 6,
       "title": "Split script into three",
       "status": "done"
     }
@@ -143,7 +143,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b8b"
   },
-  "taskID": "4",
+  "taskID": 4,
   "title": "Practice Meeting",
   "dueDate": {
     "$date": "2021-04-01T07:00:00Z"
@@ -154,17 +154,17 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "1",
+    "listID": 1,
     "name": "project"
   },
   "subtask": [
     {
-      "subtaskID": "7",
+      "subtaskID": 7,
       "title": "Create visuals for presentation",
       "status": "done"
     },
     {
-      "subtaskID": "8",
+      "subtaskID": 8,
       "title": "Practice presentation",
       "status": "done"
     }
@@ -184,7 +184,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b8c"
   },
-  "taskID": "5",
+  "taskID": 5,
   "title": "Final Presentation",
   "dueDate": {
     "$date": "2021-04-15T07:00:00Z"
@@ -195,17 +195,17 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "1",
+    "listID": 1,
     "name": "project"
   },
   "subtask": [
     {
-      "subtaskID": "9",
+      "subtaskID": 9,
       "title": "Submit presentation material",
       "status": "done"
     },
     {
-      "subtaskID": "10",
+      "subtaskID": 10,
       "title": "Receive grade",
       "status": "done"
     }
@@ -225,7 +225,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b8d"
   },
-  "taskID": "6",
+  "taskID": 6,
   "title": "Tools Setup",
   "dueDate": {
     "$date": "2021-02-11T08:00:00Z"
@@ -236,17 +236,17 @@
   "priority": "medium",
   "status": "todo",
   "list": {
-    "listID": "2",
+    "listID": 2,
     "name": "Language Learning"
   },
   "subtask": [
     {
-      "subtaskID": "11",
+      "subtaskID": 11,
       "title": "Research on perferred language and tools",
       "status": "todo"
     },
     {
-      "subtaskID": "12",
+      "subtaskID": 12,
       "title": "Sign up preferred app",
       "status": "todo"
     }
@@ -269,7 +269,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b8e"
   },
-  "taskID": "7",
+  "taskID": 7,
   "title": "Study",
   "dueDate": {
     "$date": "2021-07-10T07:00:00Z"
@@ -280,12 +280,12 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "2",
+    "listID": 2,
     "name": "Language Learning"
   },
   "comment": [
     {
-      "commentID": "9",
+      "commentID": 9,
       "content": "Try this language learning template",
       "updateAt": {
         "$date": "2021-02-01T08:00:00Z"
@@ -294,12 +294,12 @@
   ],
   "subtask": [
     {
-      "subtaskID": "13",
+      "subtaskID": 13,
       "title": "Practice half hour reading",
       "status": "todo"
     },
     {
-      "subtaskID": "14",
+      "subtaskID": 14,
       "title": "quiz on app",
       "status": "todo"
     }
@@ -314,7 +314,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b8f"
   },
-  "taskID": "8",
+  "taskID": 8,
   "title": "Speaking",
   "dueDate": {
     "$date": "2021-07-01T07:00:00Z"
@@ -325,12 +325,12 @@
   "priority": "medium",
   "status": "todo",
   "list": {
-    "listID": "2",
+    "listID": 2,
     "name": "Language Learning"
   },
   "comment": [
     {
-      "commentID": "2",
+      "commentID": 2,
       "content": "partner name: John",
       "updateAt": {
         "$date": "2021-01-18T08:00:00Z"
@@ -339,12 +339,12 @@
   ],
   "subtask": [
     {
-      "subtaskID": "15",
+      "subtaskID": 15,
       "title": "Find a conversation partner",
       "status": "todo"
     },
     {
-      "subtaskID": "16",
+      "subtaskID": 16,
       "title": "Record and listen by myself",
       "status": "todo"
     }
@@ -359,7 +359,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b90"
   },
-  "taskID": "9",
+  "taskID": 9,
   "title": "Planning Trip",
   "dueDate": {
     "$date": "2021-07-10T07:00:00Z"
@@ -370,17 +370,17 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "2",
+    "listID": 2,
     "name": "Language Learning"
   },
   "subtask": [
     {
-      "subtaskID": "17",
+      "subtaskID": 17,
       "title": "Choose the trip destination",
       "status": "done"
     },
     {
-      "subtaskID": "18",
+      "subtaskID": 18,
       "title": "Book the trip",
       "status": "done"
     }
@@ -403,7 +403,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b91"
   },
-  "taskID": "11",
+  "taskID": 11,
   "title": "FirstDay Setup",
   "dueDate": {
     "$date": "2021-02-21T08:00:00Z"
@@ -414,22 +414,22 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "3",
+    "listID": 3,
     "name": "Employee Onboarding"
   },
   "subtask": [
     {
-      "subtaskID": "19",
+      "subtaskID": 19,
       "title": "Read the culture guide",
       "status": "done"
     },
     {
-      "subtaskID": "20",
+      "subtaskID": 20,
       "title": "Sign into the company email and update password",
       "status": "done"
     },
     {
-      "subtaskID": "21",
+      "subtaskID": 21,
       "title": "Accept the invitations to team's internal tool",
       "status": "done"
     }
@@ -449,7 +449,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b92"
   },
-  "taskID": "12",
+  "taskID": 12,
   "title": "Meet People",
   "dueDate": {
     "$date": "2021-02-21T08:00:00Z"
@@ -460,12 +460,12 @@
   "priority": "medium",
   "status": "todo",
   "list": {
-    "listID": "3",
+    "listID": 3,
     "name": "Employee Onboarding"
   },
   "comment": [
     {
-      "commentID": "3",
+      "commentID": 3,
       "content": "join team number 4",
       "updateAt": {
         "$date": "2021-02-13T08:00:00Z"
@@ -474,12 +474,12 @@
   ],
   "subtask": [
     {
-      "subtaskID": "22",
+      "subtaskID": 22,
       "title": "Setup 1-on-1 meeting with mentor",
       "status": "todo"
     },
     {
-      "subtaskID": "23",
+      "subtaskID": 23,
       "title": "Plan the first meeting with team",
       "status": "todo"
     }
@@ -499,7 +499,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b93"
   },
-  "taskID": "13",
+  "taskID": 13,
   "title": "Role Task",
   "dueDate": {
     "$date": "2021-02-21T08:00:00Z"
@@ -510,12 +510,12 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "3",
+    "listID": 3,
     "name": "Employee Onboarding"
   },
   "subtask": [
     {
-      "subtaskID": "24",
+      "subtaskID": 24,
       "title": "Read the important task for role",
       "status": "done"
     }
@@ -535,7 +535,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b94"
   },
-  "taskID": "14",
+  "taskID": 14,
   "title": "Benifit Read",
   "dueDate": {
     "$date": "2021-02-10T08:00:00Z"
@@ -546,17 +546,17 @@
   "priority": "low",
   "status": "todo",
   "list": {
-    "listID": "3",
+    "listID": 3,
     "name": "Employee Onboarding"
   },
   "subtask": [
     {
-      "subtaskID": "25",
+      "subtaskID": 25,
       "title": "Read benifit on leave",
       "status": "todo"
     },
     {
-      "subtaskID": "26",
+      "subtaskID": 26,
       "title": "Read health insurance covered range",
       "status": "todo"
     }
@@ -571,7 +571,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b95"
   },
-  "taskID": "15",
+  "taskID": 15,
   "title": "Book Recommend",
   "createDate": {
     "$date": "2021-02-11T08:00:00Z"
@@ -579,18 +579,18 @@
   "priority": "low",
   "status": "done",
   "list": {
-    "listID": "3",
+    "listID": 3,
     "name": "Employee Onboarding"
   },
   "dueDate": null,
   "subtask": [
     {
-      "subtaskID": "27",
+      "subtaskID": 27,
       "title": "Read Start with why",
       "status": "done"
     },
     {
-      "subtaskID": "28",
+      "subtaskID": 28,
       "title": "Read Deep Work",
       "status": "done"
     }
@@ -610,7 +610,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b96"
   },
-  "taskID": "16",
+  "taskID": 16,
   "title": "Week 1",
   "dueDate": {
     "$date": "2021-03-07T08:00:00Z"
@@ -621,17 +621,17 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "4",
+    "listID": 4,
     "name": "Fitness"
   },
   "subtask": [
     {
-      "subtaskID": "29",
+      "subtaskID": 29,
       "title": "Treadmill at the gym",
       "status": "done"
     },
     {
-      "subtaskID": "30",
+      "subtaskID": 30,
       "title": "Resistance training at the gym",
       "status": "done"
     }
@@ -646,7 +646,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b97"
   },
-  "taskID": "17",
+  "taskID": 17,
   "title": "Week 2",
   "dueDate": {
     "$date": "2021-03-14T08:00:00Z"
@@ -657,17 +657,17 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "4",
+    "listID": 4,
     "name": "Fitness"
   },
   "subtask": [
     {
-      "subtaskID": "31",
+      "subtaskID": 31,
       "title": "Treadmill at the gym",
       "status": "done"
     },
     {
-      "subtaskID": "32",
+      "subtaskID": 32,
       "title": "Resistance training at the gym",
       "status": "done"
     }
@@ -682,7 +682,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b98"
   },
-  "taskID": "18",
+  "taskID": 18,
   "title": "Week 3",
   "dueDate": {
     "$date": "2021-03-21T07:00:00Z"
@@ -693,17 +693,17 @@
   "priority": "medium",
   "status": "todo",
   "list": {
-    "listID": "4",
+    "listID": 4,
     "name": "Fitness"
   },
   "subtask": [
     {
-      "subtaskID": "33",
+      "subtaskID": 33,
       "title": "Treadmill at the gym",
       "status": "todo"
     },
     {
-      "subtaskID": "34",
+      "subtaskID": 34,
       "title": "Resistance training at home",
       "status": "todo"
     }
@@ -718,7 +718,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b99"
   },
-  "taskID": "19",
+  "taskID": 19,
   "title": "Week 4",
   "dueDate": {
     "$date": "2021-03-28T07:00:00Z"
@@ -729,16 +729,17 @@
   "priority": "medium",
   "status": "todo",
   "list": {
-    "listID": "Fitness"
+    "listID": 4,
+    "name": "Fitness"
   },
   "subtask": [
     {
-      "subtaskID": "35",
+      "subtaskID": 35,
       "title": "Resistance training at home",
       "status": "todo"
     },
     {
-      "subtaskID": "36",
+      "subtaskID": 36,
       "title": "Measure bodyfit",
       "status": "todo"
     }
@@ -753,7 +754,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b9a"
   },
-  "taskID": "20",
+  "taskID": 20,
   "title": "Week 5",
   "dueDate": {
     "$date": "2021-04-04T07:00:00Z"
@@ -764,12 +765,12 @@
   "priority": "medium",
   "status": "todo",
   "list": {
-    "listID": "4",
+    "listID": 4,
     "name": "Fitness"
   },
   "comment": [
     {
-      "commentID": "4",
+      "commentID": 4,
       "content": "add 2 kilograms",
       "updateAt": {
         "$date": "2021-04-01T07:00:00Z"
@@ -778,12 +779,12 @@
   ],
   "subtask": [
     {
-      "subtaskID": "37",
+      "subtaskID": 37,
       "title": "Resistance training at the gym",
       "status": "todo"
     },
     {
-      "subtaskID": "38",
+      "subtaskID": 38,
       "title": "Treadmill at the gym",
       "status": "todo"
     }
@@ -798,7 +799,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b9b"
   },
-  "taskID": "21",
+  "taskID": 21,
   "title": "Brainstorm Collection",
   "dueDate": {
     "$date": "2021-03-01T08:00:00Z"
@@ -809,12 +810,12 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "5",
+    "listID": 5,
     "name": "Video Making"
   },
   "subtask": [
     {
-      "subtaskID": "39",
+      "subtaskID": 39,
       "title": "Select topic and write script",
       "status": "todo"
     }
@@ -834,7 +835,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b9c"
   },
-  "taskID": "22",
+  "taskID": 22,
   "title": "Pre-production",
   "dueDate": {
     "$date": "2021-05-01T07:00:00Z"
@@ -845,19 +846,19 @@
   "priority": "medium",
   "status": "todo",
   "list": {
-    "listID": "5",
+    "listID": 5,
     "name": "Video Making"
   },
   "comment": [
     {
-      "commentID": "5",
+      "commentID": 5,
       "content": "casting Kelly for main character",
       "updateAt": {
         "$date": "2021-04-01T07:00:00Z"
       }
     },
     {
-      "commentID": "6",
+      "commentID": 6,
       "content": "casting John for main character",
       "updateAt": {
         "$date": "2021-04-01T07:00:00Z"
@@ -866,17 +867,17 @@
   ],
   "subtask": [
     {
-      "subtaskID": "40",
+      "subtaskID": 40,
       "title": "Prepare equipment",
       "status": "todo"
     },
     {
-      "subtaskID": "41",
+      "subtaskID": 41,
       "title": "Make casting call",
       "status": "todo"
     },
     {
-      "subtaskID": "42",
+      "subtaskID": 42,
       "title": "Plan shooting schedule",
       "status": "todo"
     }
@@ -896,7 +897,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b9d"
   },
-  "taskID": "23",
+  "taskID": 23,
   "title": "Production",
   "dueDate": {
     "$date": "2021-07-01T07:00:00Z"
@@ -907,17 +908,17 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "5",
+    "listID": 5,
     "name": "Video Making"
   },
   "subtask": [
     {
-      "subtaskID": "43",
+      "subtaskID": 43,
       "title": "Check equipment",
       "status": "done"
     },
     {
-      "subtaskID": "44",
+      "subtaskID": 44,
       "title": "Shoot",
       "status": "done"
     }
@@ -937,7 +938,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663b9e"
   },
-  "taskID": "24",
+  "taskID": 24,
   "title": "Post-production",
   "dueDate": {
     "$date": "2021-08-01T07:00:00Z"
@@ -948,17 +949,17 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "5",
+    "listID": 5,
     "name": "Video Making"
   },
   "subtask": [
     {
-      "subtaskID": "45",
+      "subtaskID": 45,
       "title": "Add music",
       "status": "todo"
     },
     {
-      "subtaskID": "46",
+      "subtaskID": 46,
       "title": "Add effect and title",
       "status": "todo"
     }
@@ -1054,7 +1055,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663ba1"
   },
-  "taskID": "27",
+  "taskID": 27,
   "title": "Rewrite your next draft",
   "dueDate": {
     "$date": "2021-11-05T07:00:00Z"
@@ -1065,22 +1066,22 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "6",
+    "listID": 6,
     "name": "Book Writing"
   },
   "subtask": [
     {
-      "subtaskID": "51",
+      "subtaskID": 51,
       "title": "Read your previous draft, mark what you like and discard the rest",
       "status": "todo"
     },
     {
-      "subtaskID": "52",
+      "subtaskID": 52,
       "title": "Write your next draft from scratch with your favorite parts as reference points",
       "status": "todo"
     },
     {
-      "subtaskID": "53",
+      "subtaskID": 53,
       "title": "Read your draft and revise it into the final draft",
       "status": "todo"
     }
@@ -1095,7 +1096,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663ba2"
   },
-  "taskID": "28",
+  "taskID": 28,
   "title": "Revise your final draft",
   "dueDate": {
     "$date": "2021-11-08T08:00:00Z"
@@ -1106,7 +1107,7 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "6",
+    "listID": 6,
     "name": "Book Writing"
   },
   "creator": {
@@ -1119,7 +1120,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663ba3"
   },
-  "taskID": "29",
+  "taskID": 29,
   "title": "Submit to your editor asking for specific feedback",
   "dueDate": {
     "$date": "2021-11-10T08:00:00Z"
@@ -1130,7 +1131,7 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "6",
+    "listID": 6,
     "name": "Book Writing"
   },
   "creator": {
@@ -1143,7 +1144,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663ba4"
   },
-  "taskID": "30",
+  "taskID": 30,
   "title": "Finalize the book",
   "dueDate": {
     "$date": "2021-11-12T08:00:00Z"
@@ -1154,7 +1155,7 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "6",
+    "listID": 6,
     "name": "Book Writing"
   },
   "creator": {
@@ -1167,7 +1168,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663ba5"
   },
-  "taskID": "31",
+  "taskID": 31,
   "title": "Speak at at least 4 events this year",
   "dueDate": {
     "$date": "2021-12-31T08:00:00Z"
@@ -1178,7 +1179,7 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "7",
+    "listID": 7,
     "name": "Goal Tracker"
   },
   "creator": {
@@ -1196,7 +1197,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663ba6"
   },
-  "taskID": "32",
+  "taskID": 32,
   "title": "Mentor a young person in my field",
   "dueDate": {
     "$date": "2021-12-31T08:00:00Z"
@@ -1207,12 +1208,12 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "7",
+    "listID": 7,
     "name": "Goal Tracker"
   },
   "comment": [
     {
-      "commentID": "8",
+      "commentID": 8,
       "content": "For more inspiration and advice: Deliver Career-Changing Mentorship – 25 Tips From the Best Mentors We Know",
       "updateAt": {
         "$date": "2021-01-03T08:00:00Z"
@@ -1264,7 +1265,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663ba8"
   },
-  "taskID": "34",
+  "taskID": 34,
   "title": "Remember to send cards for my friends’ and family’s birthdays",
   "dueDate": {
     "$date": "2021-12-31T08:00:00Z"
@@ -1275,7 +1276,7 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "7",
+    "listID": 7,
     "name": "Goal Tracker"
   },
   "creator": {
@@ -1296,7 +1297,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663ba9"
   },
-  "taskID": "35",
+  "taskID": 35,
   "title": "Set up and stick with a budget",
   "dueDate": {
     "$date": "2021-12-31T08:00:00Z"
@@ -1307,7 +1308,7 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "7",
+    "listID": 7,
     "name": "Goal Tracker"
   },
   "creator": {
@@ -1325,7 +1326,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663baa"
   },
-  "taskID": "36",
+  "taskID": 36,
   "title": "Read 30 books this year",
   "dueDate": {
     "$date": "2021-12-31T08:00:00Z"
@@ -1336,7 +1337,7 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "7",
+    "listID": 7,
     "name": "Goal Tracker"
   },
   "creator": {
@@ -1354,7 +1355,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bab"
   },
-  "taskID": "37",
+  "taskID": 37,
   "title": "Learn a new language",
   "dueDate": {
     "$date": "2021-12-31T08:00:00Z"
@@ -1365,7 +1366,7 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "7",
+    "listID": 7,
     "name": "Goal Tracker"
   },
   "creator": {
@@ -1383,7 +1384,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bac"
   },
-  "taskID": "38",
+  "taskID": 38,
   "title": "Rent a moving van or truck",
   "dueDate": {
     "$date": "2021-09-10T07:00:00Z"
@@ -1394,7 +1395,7 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "8",
+    "listID": 8,
     "name": "Moving House"
   },
   "creator": {
@@ -1415,7 +1416,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bad"
   },
-  "taskID": "39",
+  "taskID": 39,
   "title": "Box up everything",
   "dueDate": {
     "$date": "2021-09-12T07:00:00Z"
@@ -1426,47 +1427,47 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "8",
+    "listID": 8,
     "name": "Moving House"
   },
   "subtask": [
     {
-      "subtaskID": "58",
+      "subtaskID": 58,
       "title": "bedrooms",
       "status": "todo"
     },
     {
-      "subtaskID": "59",
+      "subtaskID": 59,
       "title": "bathrooms",
       "status": "todo"
     },
     {
-      "subtaskID": "60",
+      "subtaskID": 60,
       "title": "bathrooms",
       "status": "todo"
     },
     {
-      "subtaskID": "61",
+      "subtaskID": 61,
       "title": "living room",
       "status": "todo"
     },
     {
-      "subtaskID": "62",
+      "subtaskID": 62,
       "title": "kitchen",
       "status": "todo"
     },
     {
-      "subtaskID": "63",
+      "subtaskID": 63,
       "title": "basement",
       "status": "todo"
     },
     {
-      "subtaskID": "64",
+      "subtaskID": 64,
       "title": "home office",
       "status": "todo"
     },
     {
-      "subtaskID": "65",
+      "subtaskID": 65,
       "title": "attic",
       "status": "todo"
     }
@@ -1486,7 +1487,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bae"
   },
-  "taskID": "40",
+  "taskID": 40,
   "title": "Update address ",
   "dueDate": {
     "$date": "2021-09-13T07:00:00Z"
@@ -1497,42 +1498,42 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "8",
+    "listID": 8,
     "name": "Moving House"
   },
   "subtask": [
     {
-      "subtaskID": "66",
+      "subtaskID": 66,
       "title": "bank",
       "status": "todo"
     },
     {
-      "subtaskID": "67",
+      "subtaskID": 67,
       "title": "general practitioner",
       "status": "todo"
     },
     {
-      "subtaskID": "68",
+      "subtaskID": 68,
       "title": "dentist",
       "status": "todo"
     },
     {
-      "subtaskID": "69",
+      "subtaskID": 69,
       "title": "water provider",
       "status": "todo"
     },
     {
-      "subtaskID": "70",
+      "subtaskID": 70,
       "title": "gas & electricity provider",
       "status": "todo"
     },
     {
-      "subtaskID": "71",
+      "subtaskID": 71,
       "title": "intenet\telecom provider",
       "status": "todo"
     },
     {
-      "subtaskID": "72",
+      "subtaskID": 72,
       "title": "subscriptions",
       "status": "todo"
     }
@@ -1552,7 +1553,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663baf"
   },
-  "taskID": "41",
+  "taskID": 41,
   "title": "Final clean of the house",
   "dueDate": {
     "$date": "2021-09-12T07:00:00Z"
@@ -1563,7 +1564,7 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "8",
+    "listID": 8,
     "name": "Moving House"
   },
   "creator": {
@@ -1581,7 +1582,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bb0"
   },
-  "taskID": "42",
+  "taskID": 42,
   "title": "Do a final round to make sure you haven't forgotten anything ",
   "dueDate": {
     "$date": "2021-09-12T07:00:00Z"
@@ -1592,7 +1593,7 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "8",
+    "listID": 8,
     "name": "Moving House"
   },
   "creator": {
@@ -1610,7 +1611,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bb1"
   },
-  "taskID": "43",
+  "taskID": 43,
   "title": "Unpack and put things in place",
   "dueDate": {
     "$date": "2021-09-13T07:00:00Z"
@@ -1621,42 +1622,42 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "8",
+    "listID": 8,
     "name": "Moving House"
   },
   "subtask": [
     {
-      "subtaskID": "73",
+      "subtaskID": 73,
       "title": "bedrooms",
       "status": "todo"
     },
     {
-      "subtaskID": "74",
+      "subtaskID": 74,
       "title": "bathrooms",
       "status": "todo"
     },
     {
-      "subtaskID": "75",
+      "subtaskID": 75,
       "title": "living room",
       "status": "todo"
     },
     {
-      "subtaskID": "76",
+      "subtaskID": 76,
       "title": "kitchen",
       "status": "todo"
     },
     {
-      "subtaskID": "77",
+      "subtaskID": 77,
       "title": "basement",
       "status": "todo"
     },
     {
-      "subtaskID": "78",
+      "subtaskID": 78,
       "title": "home office",
       "status": "todo"
     },
     {
-      "subtaskID": "79",
+      "subtaskID": 79,
       "title": "attic",
       "status": "todo"
     }
@@ -1676,7 +1677,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bb2"
   },
-  "taskID": "44",
+  "taskID": 44,
   "title": "Treat helping hands to a meal ",
   "dueDate": {
     "$date": "2021-09-14T07:00:00Z"
@@ -1687,7 +1688,7 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "8",
+    "listID": 8,
     "name": "Moving House"
   },
   "creator": {
@@ -1705,7 +1706,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bb3"
   },
-  "taskID": "45",
+  "taskID": 45,
   "title": "Book hotel stay",
   "dueDate": {
     "$date": "2021-08-12T07:00:00Z"
@@ -1716,7 +1717,7 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "9",
+    "listID": 9,
     "name": "Vacation Planning"
   },
   "creator": {
@@ -1734,7 +1735,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bb4"
   },
-  "taskID": "46",
+  "taskID": 46,
   "title": "Rent a car",
   "dueDate": {
     "$date": "2021-08-12T07:00:00Z"
@@ -1745,7 +1746,7 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "9",
+    "listID": 9,
     "name": "Vacation Planning"
   },
   "creator": {
@@ -1763,7 +1764,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bb5"
   },
-  "taskID": "47",
+  "taskID": 47,
   "title": "Get travel insurance",
   "dueDate": {
     "$date": "2021-08-12T07:00:00Z"
@@ -1773,7 +1774,6 @@
   },
   "priority": "high",
   "status": "done",
-  "listID": "9",
   "creator": {
     "$oid": "619eb7fa36b435bf0941af14"
   },
@@ -1784,12 +1784,16 @@
     {
       "$oid": "619efb0636b435bf0941af3b"
     }
-  ]
+  ],
+  "list": {
+    "listID": 9,
+    "name": "Vacation Planning"
+  }
 },{
   "_id": {
     "$oid": "619d55bb5b3062fb52663bb6"
   },
-  "taskID": "48",
+  "taskID": 48,
   "title": "Pack suitcase",
   "dueDate": {
     "$date": "2021-08-12T07:00:00Z"
@@ -1800,37 +1804,37 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "9",
+    "listID": 9,
     "name": "Vacation Planning"
   },
   "subtask": [
     {
-      "subtaskID": "80",
+      "subtaskID": 80,
       "title": "7 unders",
       "status": "done"
     },
     {
-      "subtaskID": "81",
+      "subtaskID": 81,
       "title": "7 pairs of socks",
       "status": "done"
     },
     {
-      "subtaskID": "82",
+      "subtaskID": 82,
       "title": "3 shorts",
       "status": "done"
     },
     {
-      "subtaskID": "83",
+      "subtaskID": 83,
       "title": "6 T-shirts",
       "status": "done"
     },
     {
-      "subtaskID": "83",
+      "subtaskID": 84,
       "title": "swimming trunks",
       "status": "done"
     },
     {
-      "subtaskID": "83",
+      "subtaskID": 85,
       "title": "sandals",
       "status": "done"
     }
@@ -1850,7 +1854,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bb7"
   },
-  "taskID": "49",
+  "taskID": 49,
   "title": "Where to eat and drink in Tulum",
   "dueDate": {
     "$date": "2021-08-12T07:00:00Z"
@@ -1861,22 +1865,22 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "9",
+    "listID": 9,
     "name": "Vacation Planning"
   },
   "subtask": [
     {
-      "subtaskID": "84",
+      "subtaskID": 85,
       "title": "Taqueria Honorio",
       "status": "done"
     },
     {
-      "subtaskID": "85",
+      "subtaskID": 86,
       "title": "Sabor De Mar",
       "status": "done"
     },
     {
-      "subtaskID": "86",
+      "subtaskID": 87,
       "title": "Antojitos La Chiapaneca",
       "status": "done"
     }
@@ -1896,7 +1900,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bb8"
   },
-  "taskID": "50",
+  "taskID": 50,
   "title": "Signtseeing in Tulum",
   "dueDate": {
     "$date": "2021-08-12T07:00:00Z"
@@ -1907,12 +1911,12 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "9",
+    "listID": 9,
     "name": "Vacation Planning"
   },
   "comment": [
     {
-      "commentID": "10",
+      "commentID": 10,
       "content": "Starting a side business is a great goal for anyone who wants to create a new income stream, stretch their professional skills, or both. But it can also be daunting to get started.",
       "updateAt": {
         "$date": "2021-01-26T08:00:00Z"
@@ -1921,17 +1925,17 @@
   ],
   "subtask": [
     {
-      "subtaskID": "87",
+      "subtaskID": 88,
       "title": "Chichen Itza (Day Trip)",
       "status": "done"
     },
     {
-      "subtaskID": "88",
+      "subtaskID": 89,
       "title": "Ruins of Tulum",
       "status": "done"
     },
     {
-      "subtaskID": "89",
+      "subtaskID": 90,
       "title": "Cenotes Labnaha",
       "status": "done"
     }
@@ -1951,7 +1955,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bb9"
   },
-  "taskID": "51",
+  "taskID": 51,
   "title": "Let My People Go Surfing: The Education of a Reluctant Businessman",
   "dueDate": {
     "$date": "2021-07-03T07:00:00Z"
@@ -1963,7 +1967,7 @@
   "priority": "low",
   "status": "done",
   "list": {
-    "listID": "10",
+    "listID": 10,
     "name": "Reading List"
   },
   "creator": {
@@ -1976,7 +1980,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bba"
   },
-  "taskID": "52",
+  "taskID": 52,
   "title": "Quiet: The Power of Introverts in a World That Can't Stop Talking",
   "dueDate": {
     "$date": "2021-06-01T07:00:00Z"
@@ -1988,7 +1992,7 @@
   "priority": "low",
   "status": "done",
   "list": {
-    "listID": "10",
+    "listID": 10,
     "name": "Reading List"
   },
   "creator": {
@@ -2001,7 +2005,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bbb"
   },
-  "taskID": "53",
+  "taskID": 53,
   "title": "The Score Takes Care of Itself",
   "dueDate": {
     "$date": "2021-05-05T07:00:00Z"
@@ -2013,7 +2017,7 @@
   "priority": "low",
   "status": "todo",
   "list": {
-    "listID": "10",
+    "listID": 10,
     "name": "Reading List"
   },
   "creator": {
@@ -2026,7 +2030,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bbc"
   },
-  "taskID": "54",
+  "taskID": 54,
   "title": "Outliers",
   "dueDate": {
     "$date": "2021-05-20T07:00:00Z"
@@ -2042,12 +2046,16 @@
   },
   "assignee": {
     "$oid": "619eb7fa36b435bf0941af14"
+  },
+  "list": {
+    "listID": 10,
+    "name": "Reading List"
   }
 },{
   "_id": {
     "$oid": "619d55bb5b3062fb52663bbd"
   },
-  "taskID": "55",
+  "taskID": 55,
   "title": "Bird by Bird: Some Instructions on Writing and Life",
   "dueDate": {
     "$date": "2021-04-30T07:00:00Z"
@@ -2059,7 +2067,7 @@
   "priority": "low",
   "status": "todo",
   "list": {
-    "listID": "10",
+    "listID": 10,
     "name": "Reading List"
   },
   "creator": {
@@ -2072,7 +2080,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bbe"
   },
-  "taskID": "56",
+  "taskID": 56,
   "title": "Set a final deadline",
   "createDate": {
     "$date": "2021-10-26T07:00:00Z"
@@ -2080,7 +2088,7 @@
   "priority": "low",
   "status": "todo",
   "list": {
-    "listID": "6",
+    "listID": 6,
     "name": "Book Writing"
   },
   "dueDate": null,
@@ -2102,7 +2110,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bbf"
   },
-  "taskID": "57",
+  "taskID": 57,
   "title": "Brainstorm a few ideas",
   "createDate": {
     "$date": "2021-10-26T07:00:00Z"
@@ -2110,7 +2118,7 @@
   "priority": "high",
   "status": "done",
   "list": {
-    "listID": "6",
+    "listID": 6,
     "name": "Book Writing"
   },
   "dueDate": null,
@@ -2129,7 +2137,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bc0"
   },
-  "taskID": "58",
+  "taskID": 58,
   "title": "Write a few flash fictions and pick the one you like the most",
   "createDate": {
     "$date": "2021-10-26T07:00:00Z"
@@ -2137,7 +2145,7 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "6",
+    "listID": 6,
     "name": "Book Writing"
   },
   "dueDate": null,
@@ -2156,7 +2164,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bc1"
   },
-  "taskID": "59",
+  "taskID": 59,
   "title": "Read a few books that inspire your writing",
   "createDate": {
     "$date": "2021-10-26T07:00:00Z"
@@ -2164,7 +2172,7 @@
   "priority": "high",
   "status": "todo",
   "list": {
-    "listID": "6",
+    "listID": 6,
     "name": "Book Writing"
   },
   "dueDate": null,
@@ -2183,7 +2191,7 @@
   "_id": {
     "$oid": "619d55bb5b3062fb52663bc2"
   },
-  "taskID": "60",
+  "taskID": 60,
   "title": "Decide which tool you’ll use to write the book",
   "createDate": {
     "$date": "2021-10-26T07:00:00Z"
@@ -2191,23 +2199,23 @@
   "priority": "medium",
   "status": "done",
   "list": {
-    "listID": "6",
+    "listID": 6,
     "name": "Book Writing"
   },
   "dueDate": null,
   "subtask": [
     {
-      "subtaskID": "90",
+      "subtaskID": 91,
       "title": "Try Microsoft Word",
       "status": "done"
     },
     {
-      "subtaskID": "91",
+      "subtaskID": 92,
       "title": "Try Scrivener",
       "status": "done"
     },
     {
-      "subtaskID": "92",
+      "subtaskID": 93,
       "title": "Try Draft",
       "status": "done"
     }

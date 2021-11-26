@@ -55,7 +55,7 @@ There will be many to many relationships (task-tag) and one to many (user- task,
   "_id": {
     "$oid": "619d55bb5b3062fb52663b88"
   },
-  "taskID": "1",
+  "taskID": 1,
   "title": "Brainstorm Meeting",
   "dueDate": {
     "$date": "2021-02-11T08:00:00Z"
@@ -71,7 +71,7 @@ There will be many to many relationships (task-tag) and one to many (user- task,
   },
   "comment": [
     {
-      "commentID": "1",
+      "commentID": 1,
       "content": "several Disney characters or just one",
       "updateAt": {
         "$date": "2021-01-31T08:00:00Z"
@@ -80,12 +80,12 @@ There will be many to many relationships (task-tag) and one to many (user- task,
   ],
   "subtask": [
     {
-      "subtaskID": "1",
+      "subtaskID": 1,
       "title": "Select topic",
       "status": "done"
     },
     {
-      "subtaskID": "2",
+      "subtaskID": 2,
       "title": "Select presentation style",
       "status": "done"
     }
@@ -117,7 +117,7 @@ There will be many to many relationships (task-tag) and one to many (user- task,
   "email": "mfarnell0@independent.co.uk",
   "firstName": "Marrilee",
   "lastName": "Farnell",
-  "userID": "1"
+  "userID": 1
 }
 ```
 
@@ -129,7 +129,7 @@ There will be many to many relationships (task-tag) and one to many (user- task,
     "$oid": "619efb0636b435bf0941af3b"
   },
   "name": "personal",
-  "tagID": "1"
+  "tagID": 1
 }
 ```
 
@@ -165,11 +165,25 @@ mongoimport --db task --collection tag --type json --file ./db/tag.json --jsonAr
 
 ## Define and execute at least five queries that show your database.
 
--
+To execute the query:
 
-# Implementation of the task-tracker nodeExpressSqliteEJS Application
+```
+node db/Query1.js
+```
 
-An Application Using Node + Expres + SQlite + EJS implementing a simple task manager
+-   [Query1.js](https://github.com/ldgze/task-tracker-MongoDB/blob/main/db/Query1.js): How many tasks are assigned to each user?
+
+-   [Query2.js](https://github.com/ldgze/task-tracker-MongoDB/blob/main/db/Query2.js): Set the task of specifc taskID as finished.
+
+-   [Query3.js](https://github.com/ldgze/task-tracker-MongoDB/blob/main/db/Query3.js): Get the top ten unfinished tasks of high priority，sorted with the create date.
+
+-   [Query4.js](https://github.com/ldgze/task-tracker-MongoDB/blob/main/db/Query4.js): Get the number of tasks of different tags.
+
+-   [Query5.js](https://github.com/ldgze/task-tracker-MongoDB/blob/main/db/Query5.js): Get all the tasks that are of hign or medium priority and due on Sep 2021
+
+# Implementation of the task-tracker nodeExpressMongoDBEJS Application
+
+An Application Using Node + Expres + MongoDB + EJS implementing a simple task manager
 
 ## Using it
 

@@ -1,6 +1,7 @@
+// get the top ten unfinished tasks of high priority，sorted with the create date.
 const { MongoClient } = require("mongodb");
 
-async function getUser() {
+async function getTask() {
   let db, client;
 
   try {
@@ -12,39 +13,41 @@ async function getUser() {
 
     console.log("Connected to Mongo Server");
 
-    db = client.db("ieeevisTweets");
+    db = client.db("task");
 
-    const tweetCollection = db.collection("tweet");
+    const taskCollection = db.collection("task");
 
-    const agg = [
-      {
-        $group: {
-          _id: "$user.id",
-          numberOfTweets: {
-            $count: {},
-          },
-        },
-      },
-      {
-        $sort: {
-          numberOfTweets: -1,
-        },
-      },
-      {
-        $limit: 1,
-      },
-    ];
+    const filter = {
+      status: "todo",
+      priority: "high",
+    };
+    const projection = {
+      taskID: 1,
+      title: 1,
+      createDate: 1,
+      dueDate: 1,
+    };
+    const sort = {
+      dueDate: 1,
+    };
+    const limit = 10;
 
-    const user = await tweetCollection.aggregate(agg).toArray();
+    const task = await taskCollection
+      .find(filter, {
+        projection: projection,
+        sort: sort,
+        limit: limit,
+      })
+      .toArray();
 
-    console.log(user);
+    console.log(task);
 
-    return user;
+    return task;
   } finally {
     await client.close();
   }
 }
 
-module.exports.getUser = getUser;
+module.exports.getTask = getTask;
 
-getUser();
+getTask();

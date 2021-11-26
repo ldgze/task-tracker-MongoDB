@@ -1,6 +1,7 @@
+// set the task of specifc taskID as finished
 const { MongoClient } = require("mongodb");
 
-async function getScreenNames() {
+async function setFinish(taskID) {
   let db, client;
 
   try {
@@ -12,53 +13,33 @@ async function getScreenNames() {
 
     console.log("Connected to Mongo Server");
 
-    db = client.db("ieeevisTweets");
+    db = client.db("task");
 
-    const tweetCollection = db.collection("tweet");
+    const taskCollection = db.collection("task");
 
-    const agg = [
-      {
-        $sort: {
-          "user.followers_count": 1,
-        },
+    const query = { taskID: taskID };
+    const update = {
+      $set: {
+        status: "done",
       },
-      {
-        $group: {
-          _id: "$user.id",
-          numberOfFollowers: {
-            $last: "$user.followers_count",
-          },
-          screenName: {
-            $last: "$user.screen_name",
-          },
-        },
-      },
-      {
-        $sort: {
-          numberOfFollowers: -1,
-        },
-      },
-      {
-        $limit: 10,
-      },
-      {
-        $project: {
-          screenName: 1,
-          _id: 0,
-        },
-      },
-    ];
-
-    const screenNames = await tweetCollection.aggregate(agg).toArray();
-
-    console.log(screenNames);
-
-    return screenNames;
+    };
+    const options = { upsert: false };
+    await taskCollection
+      .updateOne(query, update, options)
+      .then((result) => {
+        const { matchedCount, modifiedCount } = result;
+        if (matchedCount && modifiedCount) {
+          console.log(`Successfully set the task as finished.`);
+        }
+      })
+      .catch((err) =>
+        console.error(`Failed to set the task as finished: ${err}`)
+      );
   } finally {
     await client.close();
   }
 }
 
-module.exports.getScreenNames = getScreenNames;
+module.exports.setFinish = setFinish;
 
-getScreenNames();
+setFinish(6);

@@ -1,6 +1,7 @@
+// get the number of tasks of different tags
 const { MongoClient } = require("mongodb");
 
-async function getUser() {
+async function getCount() {
   let db, client;
 
   try {
@@ -12,49 +13,48 @@ async function getUser() {
 
     console.log("Connected to Mongo Server");
 
-    db = client.db("ieeevisTweets");
+    db = client.db("task");
 
-    const tweetCollection = db.collection("tweet");
+    const tagCollection = db.collection("tag");
 
     const agg = [
       {
+        $lookup: {
+          from: "task",
+          localField: "_id",
+          foreignField: "tag",
+          as: "task",
+        },
+      },
+      {
+        $unwind: {
+          path: "$task",
+          preserveNullAndEmptyArrays: true,
+        },
+      },
+      {
         $group: {
-          _id: "$user.id",
-          countTweets: {
-            $count: {},
+          _id: "$_id",
+          count: {
+            $sum: 1,
           },
-          avgRetweet: {
-            $avg: "$retweet_count",
-          },
-        },
-      },
-      {
-        $match: {
-          countTweets: {
-            $gt: 3,
+          name: {
+            $last: "$name",
           },
         },
-      },
-      {
-        $sort: {
-          avgRetweet: -1,
-        },
-      },
-      {
-        $limit: 10,
       },
     ];
 
-    const user = await tweetCollection.aggregate(agg).toArray();
+    const tag = await tagCollection.aggregate(agg).toArray();
 
-    console.log(user);
+    console.log(tag);
 
-    return user;
+    return tag;
   } finally {
     await client.close();
   }
 }
 
-module.exports.getUser = getUser;
+module.exports.getCount = getCount;
 
-getUser();
+getCount();
