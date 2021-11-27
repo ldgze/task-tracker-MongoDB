@@ -30,28 +30,20 @@ async function getTasks(query, page, pageSize) {
 }
 
 async function getTasksCount(query) {
-  console.log("getTasks", query);
+  console.log("getTasksCount", query);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    SELECT COUNT(*) AS count
-    FROM Task
-    WHERE title LIKE @query;
-    `);
-
-  const params = {
-    "@query": query + "%",
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return (await stmt.get(params)).count;
+    await client.connect();
+
+    const queryObj = {
+      title: { $regex: `^${query}`, $options: "i" },
+    };
+
+    return await client.db(DB_NAME).collection(COL_NAME).find(queryObj).count();
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
