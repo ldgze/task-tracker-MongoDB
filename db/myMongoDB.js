@@ -47,439 +47,354 @@ async function getTasksCount(query) {
   }
 }
 
-async function getTaskByID(taskID) {
-  console.log("getTaskByID", taskID);
+async function getTaskByID(task_id) {
+  console.log("getTaskByID", task_id);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    SELECT * FROM Task
-    WHERE taskID = @taskID;
-    `);
-
-  const params = {
-    "@taskID": taskID,
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.get(params);
+    await client.connect();
+
+    const queryObj = {
+      _id: new ObjectId(task_id),
+    };
+
+    return await client.db(DB_NAME).collection(COL_NAME).findOne(queryObj);
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function updateTaskByID(taskID, task) {
-  console.log("updateTaskByID", taskID, task);
+async function updateTaskByID(task_id, task) {
+  console.log("updateTaskByID", task_id, task);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    UPDATE Task
-    SET
-      title = @title,
-      dueDate = @dueDate,
-      URL = @URL,
-      priority = @priority
-
-    WHERE
-       taskID = @taskID;
-    `);
-
-  const params = {
-    "@taskID": taskID,
-    "@title": task.title,
-    "@dueDate": task.dueDate,
-    "@URL": task.URL,
-    "@priority": task.priority,
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.run(params);
+    await client.connect();
+
+    const queryObj = {
+      _id: new ObjectId(task_id),
+    };
+
+    return await client
+      .db(DB_NAME)
+      .collection(COL_NAME)
+      .updateOne(queryObj, { $set: task });
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function finishTaskByID(taskID) {
-  console.log("finishTaskByID", taskID);
+async function finishTaskByID(task_id) {
+  console.log("finishTaskByID", task_id);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    UPDATE Task
-    SET
-      status = 1
-
-    WHERE
-       taskID = @taskID;
-    `);
-
-  const params = {
-    "@taskID": taskID,
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.run(params);
+    await client.connect();
+
+    const queryObj = {
+      _id: new ObjectId(task_id),
+    };
+
+    return await client
+      .db(DB_NAME)
+      .collection(COL_NAME)
+      .updateOne(queryObj, {
+        $set: {
+          status: "done",
+        },
+      });
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function deleteTaskByID(taskID) {
-  console.log("deleteTaskByID", taskID);
+async function deleteTaskByID(task_id) {
+  console.log("deleteTaskByID", task_id);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    DELETE FROM Task
-    WHERE
-       taskID = @taskID;
-    DELETE FROM Tag_Task
-    WHERE
-       taskID = @taskID;
-    `);
-
-  const params = {
-    "@taskID": taskID,
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.run(params);
+    await client.connect();
+
+    const queryObj = {
+      _id: new ObjectId(task_id),
+    };
+
+    return await client.db(DB_NAME).collection(COL_NAME).remove(queryObj);
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
 async function insertTask(task) {
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`INSERT INTO
-    Task(title, dueDate, URL, priority, createDate, status)
-
-    VALUES(@title, 
-    @dueDate, 
-    @URL, 
-    @priority,
-    CURRENT_DATE,
-    "0")
-    `);
+  const client = new MongoClient(uri);
+  var createDate = new Date();
 
   try {
-    return await stmt.run({
-      "@title": task.title,
-      "@dueDate": task.dueDate,
-      "@URL": task.URL,
-      "@priority": task.priority,
+    await client.connect();
+
+    return await client.db(DB_NAME).collection(COL_NAME).insertOne({
+      title: task.title,
+      createDate: createDate,
+      dueDate: task.dueDate,
+      URL: task.URL,
+      priority: task.priority,
+      status: "todo",
     });
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function getTagsByTaskID(taskID) {
-  console.log("getTagsByTaskID", taskID);
+async function getTagsByTaskID(task_id) {
+  console.log("getTagsByTaskID", task_id);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
+  const client = new MongoClient(uri);
 
-  const stmt = await db.prepare(`
-    SELECT * FROM Tag
-    JOIN Tag_Task
-    ON Tag_Task.tagID = Tag.tagID
-    JOIN Task
-    ON Tag_Task.taskID = Task.taskID
-    WHERE Tag_Task.taskID = @taskID;
-    `);
-
-  const params = {
-    "@taskID": taskID,
-  };
+  const agg = [
+    {
+      $match: {
+        _id: new ObjectId(task_id),
+      },
+    },
+    {
+      $lookup: {
+        from: "tag",
+        localField: "tag",
+        foreignField: "_id",
+        as: "tagArray",
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        tagArray: 1,
+      },
+    },
+    {
+      $unwind: {
+        path: "$tagArray",
+      },
+    },
+    {
+      $replaceRoot: {
+        newRoot: "$tagArray",
+      },
+    },
+  ];
 
   try {
-    return await stmt.all(params);
+    await client.connect();
+    return await client
+      .db(DB_NAME)
+      .collection(COL_NAME)
+      .aggregate(agg)
+      .toArray();
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function addTagIDToTaskID(taskID, tagID) {
-  console.log("addTagIDToTaskID", taskID, tagID);
+async function addTagIDToTaskID(task_id, tag_id) {
+  console.log("addTagIDToTaskID", task_id, tag_id);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    INSERT INTO
-    Tag_Task(taskID, tagID)
-    VALUES (@taskID, @tagID);
-    `);
-
-  const params = {
-    "@taskID": taskID,
-    "@tagID": tagID,
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.run(params);
+    await client.connect();
+    return await client
+      .db(DB_NAME)
+      .collection(COL_NAME)
+      .updateOne(
+        { _id: new ObjectId(task_id) },
+        { $push: { tag: new ObjectId(tag_id) } }
+      );
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function removeTagIDFromTaskID(taskID, tagID) {
-  console.log("removeTagIDFromTaskID", taskID, tagID);
+async function removeTagIDFromTaskID(task_id, tag_id) {
+  console.log("removeTagIDFromTaskID", task_id, tag_id);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    DELETE FROM
-    Tag_Task
-    WHERE taskID=@taskID AND tagID=@tagID;
-    `);
-
-  const params = {
-    "@taskID": taskID,
-    "@tagID": tagID,
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.run(params);
+    await client.connect();
+    return await client
+      .db(DB_NAME)
+      .collection(COL_NAME)
+      .updateOne(
+        { _id: new ObjectId(task_id) },
+        { $pull: { tag: new ObjectId(tag_id) } }
+      );
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
 async function getTags(query, page, pageSize) {
   console.log("getTags", query);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    SELECT * FROM Tag
-    WHERE name LIKE @query
-    ORDER BY name
-    LIMIT @pageSize
-    OFFSET @offset;
-    `);
-
-  const params = {
-    "@query": query + "%",
-    "@pageSize": pageSize,
-    "@offset": (page - 1) * pageSize,
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.all(params);
+    await client.connect();
+
+    const queryObj = {
+      name: { $regex: `^${query}`, $options: "i" },
+    };
+
+    return await client
+      .db(DB_NAME)
+      .collection("tag")
+      .find(queryObj)
+      .sort({ name: -1 })
+      .limit(pageSize)
+      .skip((page - 1) * pageSize)
+      .toArray();
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
 async function getTagsCount(query) {
-  console.log("getTags", query);
+  console.log("getTagsCount", query);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    SELECT COUNT(*) AS count
-    FROM Tag
-    WHERE name LIKE @query;
-    `);
-
-  const params = {
-    "@query": query + "%",
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return (await stmt.get(params)).count;
+    await client.connect();
+
+    const queryObj = {
+      name: { $regex: `^${query}`, $options: "i" },
+    };
+
+    return await client.db(DB_NAME).collection("tag").find(queryObj).count();
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function deleteTagByID(tagID) {
-  console.log("deleteReferenceByID", tagID);
+async function deleteTagByID(tag_id) {
+  console.log("deleteTagByID", tag_id);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    DELETE FROM Tag
-    WHERE
-       tagID = @tagID;
-    `);
-
-  const params = {
-    "@tagID": tagID,
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.run(params);
+    await client.connect();
+
+    const queryObj = {
+      _id: new ObjectId(tag_id),
+    };
+
+    return await client.db(DB_NAME).collection("tag").remove(queryObj);
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
 async function insertTag(tag) {
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`INSERT INTO
-    Tag
-    VALUES (@tagID, @name);`);
+  console.log("insertTag", tag);
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.run({
-      "@name": tag.name,
+    await client.connect();
+
+    return await client.db(DB_NAME).collection("tag").insertOne({
+      name: tag.name,
     });
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function getLists(query, page, pageSize) {
-  console.log("getLists", query);
+async function getUsers(query, page, pageSize) {
+  console.log("getUsers", query);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    SELECT * FROM List
-    WHERE name LIKE @query
-    ORDER BY name
-    LIMIT @pageSize
-    OFFSET @offset;
-    `);
-
-  const params = {
-    "@query": query + "%",
-    "@pageSize": pageSize,
-    "@offset": (page - 1) * pageSize,
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.all(params);
+    await client.connect();
+
+    const queryObj = {
+      $or: [
+        { firstName: { $regex: `^${query}`, $options: "i" } },
+        { lastName: { $regex: `^${query}`, $options: "i" } },
+        { email: { $regex: `^${query}`, $options: "i" } },
+      ],
+    };
+
+    return await client
+      .db(DB_NAME)
+      .collection("user")
+      .find(queryObj)
+      .sort({ _id: -1 })
+      .limit(pageSize)
+      .skip((page - 1) * pageSize)
+      .toArray();
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function getListsCount(query) {
-  console.log("getLists", query);
+async function getUsersCount(query) {
+  console.log("getUsersCount", query);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    SELECT COUNT(*) AS count
-    FROM List
-    WHERE name LIKE @query;
-    `);
-
-  const params = {
-    "@query": query + "%",
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return (await stmt.get(params)).count;
+    await client.connect();
+
+    const queryObj = {
+      $or: [
+        { firstName: { $regex: `^${query}`, $options: "i" } },
+        { lastName: { $regex: `^${query}`, $options: "i" } },
+        { email: { $regex: `^${query}`, $options: "i" } },
+      ],
+    };
+
+    return await client.db(DB_NAME).collection("user").find(queryObj).count();
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function deleteListByID(listID) {
-  console.log("deleteListByID", listID);
+async function deleteUserByID(user_id) {
+  console.log("deleteUserByID", user_id);
 
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`
-    DELETE FROM List
-    WHERE
-       listID = @listID;
-    `);
-
-  const params = {
-    "@listID": listID,
-  };
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.run(params);
+    await client.connect();
+
+    const queryObj = {
+      _id: new ObjectId(user_id),
+    };
+
+    return await client.db(DB_NAME).collection("user").remove(queryObj);
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
-async function insertList(list) {
-  const db = await open({
-    filename: "./db/taskDB.db",
-    driver: sqlite3.Database,
-  });
-
-  const stmt = await db.prepare(`INSERT INTO
-    List
-    VALUES (@listID, @name);`);
+async function insertUser(user) {
+  console.log("insertUser", user);
+  const client = new MongoClient(uri);
 
   try {
-    return await stmt.run({
-      "@name": list.name,
+    await client.connect();
+
+    return await client.db(DB_NAME).collection("user").insertOne({
+      firstName: user.firstName,
+      lastName: user.lasttName,
+      email: user.email,
     });
   } finally {
-    await stmt.finalize();
-    db.close();
+    client.close();
   }
 }
 
@@ -494,10 +409,10 @@ module.exports.addTagIDToTaskID = addTagIDToTaskID;
 module.exports.removeTagIDFromTaskID = removeTagIDFromTaskID;
 module.exports.getTags = getTags;
 module.exports.getTagsCount = getTagsCount;
-module.exports.getLists = getLists;
-module.exports.getListsCount = getListsCount;
-module.exports.deleteListByID = deleteListByID;
-module.exports.insertList = insertList;
+module.exports.getUsers = getUsers;
+module.exports.getUsersCount = getUsersCount;
+module.exports.deleteUserByID = deleteUserByID;
+module.exports.insertUser = insertUser;
 module.exports.deleteTagByID = deleteTagByID;
 module.exports.insertTag = insertTag;
 module.exports.finishTaskByID = finishTaskByID;

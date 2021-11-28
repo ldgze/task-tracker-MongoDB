@@ -1,6 +1,6 @@
 <h3>Add Tags</h3>
 <form
-  action="<%= '/tasks/' + task.taskID + '/addTag'  %>"
+  action="<%= '/tasks/' + task._id + '/addTag'  %>"
   method="POST"
 >
   <div>
@@ -8,8 +8,8 @@
       hidden
       type="text"
       class="form-control"
-      name="taskID"
-      value="<%= task.taskID %>"
+      name="task_id"
+      value="<%= task._id %>"
     />
   </div>
 

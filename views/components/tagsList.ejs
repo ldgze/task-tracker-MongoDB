@@ -7,10 +7,10 @@
         <h5 class="card-title"><%= tag.name   %></h5>
         <div class="card-text">
 
-          <div><%= "tagID: " + tag.tagID %></div>
+          <div><%= "tag_id: " + tag._id %></div>
           <div>
 
-            <a class="btn btn-outline-danger" href="<%= '/tags/' + tag.tagID + '/delete' %>">Delete</a>
+            <a class="btn btn-outline-danger" href="<%= '/tags/' + tag._id + '/delete' %>">Delete</a>
           </div>
           
         </div>

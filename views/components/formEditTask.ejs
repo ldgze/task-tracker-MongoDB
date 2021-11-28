@@ -1,18 +1,18 @@
 <h2>Task</h2>
 
 <form
-  action=" <%= '/tasks/' + task.taskID + '/edit' %>"
+  action=" <%= '/tasks/' + task._id + '/edit' %>"
   method="POST"
 >
 
   <div>
     <label class="form-label">
-      Task ID:
+      Task_id:
       <input
         class="form-control"
         type="text"
         name="taskID"
-        value="<%= task.taskID %>"
+        value="<%= task._id %>"
         disabled
       />
     </label>
@@ -35,7 +35,7 @@
       Due Date:
       <input
         class="form-control"
-        type="text"
+        type="date"
         name="dueDate"
         value="<%= task.dueDate %>"
       />
@@ -65,7 +65,7 @@
   
   <a
     class="btn btn-danger"
-    href="<%= '/tasks/' + task.taskID + '/delete' %>"
+    href="<%= '/tasks/' + task._id + '/delete' %>"
     >Delete</a
   >
 </form>

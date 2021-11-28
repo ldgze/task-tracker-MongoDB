@@ -9,27 +9,6 @@ router.get("/", async function (req, res, next) {
 });
 
 // http://localhost:3000/references?pageSize=24&page=3&q=John
-// router.get("/references", async (req, res, next) => {
-//   const query = req.query.q || "";
-//   const page = +req.query.page || 1;
-//   const pageSize = +req.query.pageSize || 24;
-//   const msg = req.query.msg || null;
-//   try {
-//     let total = await myDb.getReferencesCount(query);
-//     let references = await myDb.getReferences(query, page, pageSize);
-//     res.render("./pages/index", {
-//       references,
-//       query,
-//       msg,
-//       currentPage: page,
-//       lastPage: Math.ceil(total / pageSize),
-//     });
-//   } catch (err) {
-//     next(err);
-//   }
-// });
-
-// http://localhost:3000/references?pageSize=24&page=3&q=John
 router.get("/tasks", async (req, res, next) => {
   const query = req.query.q || "";
   const page = +req.query.page || 1;
@@ -50,37 +29,13 @@ router.get("/tasks", async (req, res, next) => {
   }
 });
 
-// router.get("/references/:reference_id/edit", async (req, res, next) => {
-//   const reference_id = req.params.reference_id;
-
-//   const msg = req.query.msg || null;
-//   try {
-//     let ref = await myDb.getReferenceByID(reference_id);
-//     let authors = await myDb.getAuthorsByReferenceID(reference_id);
-
-//     console.log("edit reference", {
-//       ref,
-//       authors,
-//       msg,
-//     });
-
-//     res.render("./pages/editReference", {
-//       ref,
-//       authors,
-//       msg,
-//     });
-//   } catch (err) {
-//     next(err);
-//   }
-// });
-
-router.get("/tasks/:taskID/edit", async (req, res, next) => {
-  const taskID = req.params.taskID;
+router.get("/tasks/:task_id/edit", async (req, res, next) => {
+  const task_id = req.params.task_id;
 
   const msg = req.query.msg || null;
   try {
-    let task = await myDb.getTaskByID(taskID);
-    let tags = await myDb.getTagsByTaskID(taskID);
+    let task = await myDb.getTaskByID(task_id);
+    let tags = await myDb.getTagsByTaskID(task_id);
 
     console.log("edit task", {
       task,
@@ -98,33 +53,15 @@ router.get("/tasks/:taskID/edit", async (req, res, next) => {
   }
 });
 
-// router.post("/references/:reference_id/edit", async (req, res, next) => {
-//   const reference_id = req.params.reference_id;
-//   const ref = req.body;
-
-//   try {
-//     let updateResult = await myDb.updateReferenceByID(reference_id, ref);
-//     console.log("update", updateResult);
-
-//     if (updateResult && updateResult.changes === 1) {
-//       res.redirect("/references/?msg=Updated");
-//     } else {
-//       res.redirect("/references/?msg=Error Updating");
-//     }
-//   } catch (err) {
-//     next(err);
-//   }
-// });
-
-router.post("/tasks/:taskID/edit", async (req, res, next) => {
-  const taskID = req.params.taskID;
+router.post("/tasks/:task_id/edit", async (req, res, next) => {
+  const task_id = req.params.task_id;
   const task = req.body;
 
   try {
-    let updateResult = await myDb.updateTaskByID(taskID, task);
+    let updateResult = await myDb.updateTaskByID(task_id, task);
     console.log("update", updateResult);
 
-    if (updateResult && updateResult.changes === 1) {
+    if (updateResult && updateResult.modifiedCount === 1) {
       res.redirect("/tasks/?msg=Updated");
     } else {
       res.redirect("/tasks/?msg=Error Updating");
@@ -133,28 +70,6 @@ router.post("/tasks/:taskID/edit", async (req, res, next) => {
     next(err);
   }
 });
-
-// router.post("/references/:reference_id/addAuthor", async (req, res, next) => {
-//   console.log("Add author", req.body);
-//   const reference_id = req.params.reference_id;
-//   const author_id = req.body.author_id;
-
-//   try {
-//     let updateResult = await myDb.addAuthorIDToReferenceID(
-//       reference_id,
-//       author_id
-//     );
-//     console.log("addAuthorIDToReferenceID", updateResult);
-
-//     if (updateResult && updateResult.changes === 1) {
-//       res.redirect(`/references/${reference_id}/edit?msg=Author added`);
-//     } else {
-//       res.redirect(`/references/${reference_id}/edit?msg=Error adding author`);
-//     }
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 router.post("/tasks/:taskID/addTag", async (req, res, next) => {
   console.log("Add Tag", req.body);
@@ -165,7 +80,7 @@ router.post("/tasks/:taskID/addTag", async (req, res, next) => {
     let updateResult = await myDb.addTagIDToTaskID(taskID, tagID);
     console.log("addTagIDToTaskID", updateResult);
 
-    if (updateResult && updateResult.changes === 1) {
+    if (updateResult && updateResult.modifiedCount === 1) {
       res.redirect(`/tasks/${taskID}/edit?msg=Tag added`);
     } else {
       res.redirect(`/tasks/${taskID}/edit?msg=Error adding tag`);
@@ -184,7 +99,7 @@ router.get("/tasks/:taskID/removeTag/:tagID", async (req, res, next) => {
     let updateResult = await myDb.removeTagIDFromTaskID(taskID, tagID);
     console.log("removeTagIDFromTaskID", updateResult);
 
-    if (updateResult && updateResult.changes === 1) {
+    if (updateResult && updateResult.modifiedCount === 1) {
       res.redirect(`/tasks/${taskID}/edit?msg=Tag removed`);
     } else {
       res.redirect(`/tasks/${taskID}/edit?msg=Error removing tag`);
@@ -194,14 +109,14 @@ router.get("/tasks/:taskID/removeTag/:tagID", async (req, res, next) => {
   }
 });
 
-router.get("/tasks/:taskID/delete", async (req, res, next) => {
-  const taskID = req.params.taskID;
+router.get("/tasks/:task_id/delete", async (req, res, next) => {
+  const task_id = req.params.task_id;
 
   try {
-    let deleteResult = await myDb.deleteTaskByID(taskID);
+    let deleteResult = await myDb.deleteTaskByID(task_id);
     console.log("delete", deleteResult);
 
-    if (deleteResult && deleteResult.changes === 1) {
+    if (deleteResult && deleteResult.deletedCount === 1) {
       res.redirect("/tasks/?msg=Deleted");
     } else {
       res.redirect("/tasks/?msg=Error Deleting");
@@ -211,14 +126,14 @@ router.get("/tasks/:taskID/delete", async (req, res, next) => {
   }
 });
 
-router.get("/tasks/:taskID/finish", async (req, res, next) => {
-  const taskID = req.params.taskID;
+router.get("/tasks/:task_id/finish", async (req, res, next) => {
+  const task_id = req.params.task_id;
 
   try {
-    let finishResult = await myDb.finishTaskByID(taskID);
+    let finishResult = await myDb.finishTaskByID(task_id);
     console.log("finish", finishResult);
 
-    if (finishResult && finishResult.changes === 1) {
+    if (finishResult && finishResult.modifiedCount === 1) {
       res.redirect("/tasks/?msg=Finished");
     } else {
       res.redirect("/tasks/?msg=Error Fiishing");
@@ -264,11 +179,18 @@ router.get("/tags", async (req, res, next) => {
   }
 });
 
-router.get("/tags/:id/delete", async (req, res, next) => {
-  const id = req.params.id;
+router.get("/tags/:tag_id/delete", async (req, res, next) => {
+  const tag_id = req.params.tag_id;
+
   try {
-    await myDb.deleteTagByID(id);
-    res.redirect("/tags");
+    let deleteResult = await myDb.deleteTagByID(tag_id);
+    console.log("delete", deleteResult);
+
+    if (deleteResult && deleteResult.deletedCount === 1) {
+      res.redirect("/tags/?msg=Deleted");
+    } else {
+      res.redirect("/tags/?msg=Error Deleting");
+    }
   } catch (err) {
     next(err);
   }
@@ -288,18 +210,18 @@ router.post("/createTag", async (req, res, next) => {
   }
 });
 
-router.get("/lists", async (req, res, next) => {
+router.get("/users", async (req, res, next) => {
   const query = req.query.q || "";
   const page = +req.query.page || 1;
   const pageSize = +req.query.pageSize || 24;
   const msg = req.query.msg || null;
   try {
-    let total = await myDb.getListsCount(query);
-    let lists = await myDb.getLists(query, page, pageSize);
-    console.log({ lists });
+    let total = await myDb.getUsersCount(query);
+    let users = await myDb.getUsers(query, page, pageSize);
+    console.log({ users });
     console.log({ total });
-    res.render("./pages/lists", {
-      lists,
+    res.render("./pages/users", {
+      users,
       query,
       msg,
       currentPage: page,
@@ -310,24 +232,24 @@ router.get("/lists", async (req, res, next) => {
   }
 });
 
-router.get("/lists/:listID/delete", async (req, res, next) => {
-  const listID = req.params.listID;
+router.get("/users/:user_id/delete", async (req, res, next) => {
+  const user_id = req.params.user_id;
   try {
-    await myDb.deleteListByID(listID);
-    res.redirect("/lists");
+    await myDb.deleteUserByID(user_id);
+    res.redirect("/users");
   } catch (err) {
     next(err);
   }
 });
 
-router.post("/createList", async (req, res, next) => {
-  const list = req.body;
+router.post("/createUser", async (req, res, next) => {
+  const user = req.body;
 
   try {
-    const insertList = await myDb.insertList(list);
+    const insertUser = await myDb.insertUser(user);
 
-    console.log("Inserted", insertList);
-    res.redirect("/lists/?msg=Inserted");
+    console.log("Inserted", insertUser);
+    res.redirect("/users/?msg=Inserted");
   } catch (err) {
     console.log("Error inserting", err);
     next(err);
